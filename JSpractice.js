@@ -16,7 +16,6 @@ function binaryGap(N) {
           return longestBinaryGap;
 }
 //binaryGap(6291457);
-//getPINs INCOMPLETE
 function getPINs(observed) {
 /*
 ┌───┬───┬───┐
@@ -29,79 +28,130 @@ function getPINs(observed) {
     │ 0 │
     └───┘
 */
-let string1 = '124',
-    string2 = '1235',
-    string3 = '236',
-    string4 = '1457',
-    string5 = '24568',
-    string6 = '3569',
-    string7 = '478',
-    string8 = '57890',
-    string9 = '689',
-    string0 = '80',
+let pin1 = ['1','2','4'],
+    pin2 = ['1','2','3','5'],
+    pin3 = ['2','3','6'],
+    pin4 = ['1','4','5','7'],
+    pin5 = ['2','4','5','6','8'],
+    pin6 = ['3','5','6','9'],
+    pin7 = ['4','7','8'],
+    pin8 = ['5','7','8','9','0'],
+    pin9 = ['6','8','9'],
+    pin0 = ['8','0'],
     splitObservedPinArr = observed.split(''),
     arraySetUp = [],
-    allCombosArr = [],
-    iterator = 0,
-    stringBuild = '';
+    allCombosArr = [];
 
-//return array if only one pinNumber is observed
-    if(observed.length == 1) {
-        if (observed == '1'){
-            console.log('RETURN --> ', string1.split(''));
-            return string1.split('');
-        } else if (observed == '2') {
-            console.log('RETURN --> ', string2.split(''));
-            return string2.split('');
-        } else if (observed == '3') {
-            console.log('RETURN --> ', string3.split(''));
-            return string3.split('');
-        } else if (observed == '4') {
-            console.log('RETURN --> ', string4.split(''));
-            return string4.split('');
-        } else if (observed == '5') {
-            console.log('RETURN --> ', string5.split(''));
-            return string5.split('');
-        } else if (observed == '6') {
-            console.log('RETURN --> ', string6.split(''));
-            return string6.split('');
-        } else if (observed == '7') {
-            console.log('RETURN --> ', string7.split(''));
-            return string7.split('');
-        } else if (observed == '8') {
-            console.log('RETURN --> ', string8.split(''));
-            return string8.split('');
-        } else if (observed == '9') {
-            console.log('RETURN --> ', string9.split(''));
-            return string9.split('');
-        } else if (observed == '0') {
-            console.log('RETURN --> ', string0.split(''));
-            return string0.split('');
-        }
-    } 
-    //set up initial array
-    splitObservedPinArr.forEach(pinNumber => {
-        
+    splitObservedPinArr.forEach(pin => {
+        if(pin == 1) arraySetUp.push(pin1)
+        else if (pin == 2) arraySetUp.push(pin2)
+        else if (pin == 3) arraySetUp.push(pin3)
+        else if (pin == 4) arraySetUp.push(pin4)
+        else if (pin == 5) arraySetUp.push(pin5)
+        else if (pin == 6) arraySetUp.push(pin6)
+        else if (pin == 7) arraySetUp.push(pin7)
+        else if (pin == 8) arraySetUp.push(pin8)
+        else if (pin == 9) arraySetUp.push(pin9)
+        else if (pin == 0) arraySetUp.push(pin0)
     })
-
-    /*
-    arraySetUp.forEach( i, index => {
-        console.log(i);
-        [0][0] + [1][0] 
-        [0][0] + [1][1]
-        [0][0] + [1][2]
-        [0][1] + [1][0] 
-        [0][1] + [1][1]
-        [0][1] + [1][2]
-        [0][2] + [1][0] 
-        [0][2] + [1][1]
-        [0][2] + [1][2]
-        for(let z = 0)
-    })
-    */
-    //console.log (allCombosArr);
+    if (arraySetUp.length == 1) {
+        console.log('RETURN -->\n', arraySetUp[0])
+        return arraySetUp[0];
+    } else if(arraySetUp.length == 2) {
+        arraySetUp[0].forEach(num => {
+        arraySetUp[1]
+        .forEach(num2 =>  allCombosArr.push(num + num2))
+          })
+          console.log('RETURN -->\n', allCombosArr)
+          return allCombosArr;
+    } else if(arraySetUp.length == 3) {
+        arraySetUp[0].forEach(num => {
+        arraySetUp[1]
+        .forEach(num2 => 
+        arraySetUp[2]
+        .forEach(num3 => allCombosArr.push(num + num2 + num3))
+        )
+        })
+        console.log('RETURN -->\n', allCombosArr)
+        return allCombosArr;
+    } else if(arraySetUp.length == 4) {
+        arraySetUp[0].forEach(num => {
+        arraySetUp[1]
+        .forEach(num2 => 
+        arraySetUp[2]
+        .forEach(num3 => 
+        arraySetUp[3]
+        .forEach(num4 => allCombosArr.push(num + num2 + num3 + num4))     
+        ))
+        })
+        return allCombosArr;
+    } else if(arraySetUp.length == 5) {
+        arraySetUp[0].forEach(num => {
+        arraySetUp[1]
+        .forEach(num2 => 
+        arraySetUp[2]
+        .forEach(num3 => 
+        arraySetUp[3]
+        .forEach(num4 => 
+        arraySetUp[4]
+        .forEach(num5 => allCombosArr.push(num + num2 + num3 + num4 + num5))   
+        )))
+        })
+        return allCombosArr;
+    } else if(arraySetUp.length == 6) {
+        arraySetUp[0].forEach(num => {
+        arraySetUp[1]
+        .forEach(num2 => 
+        arraySetUp[2]
+        .forEach(num3 => 
+        arraySetUp[3]
+        .forEach(num4 => 
+        arraySetUp[4]
+        .forEach(num5 => 
+        arraySetUp[5]
+        .forEach(num6 => allCombosArr.push(num + num2 + num3 + num4 + num5 + num6))
+        ))))
+        })
+        return allCombosArr;
+    } else if(arraySetUp.length == 7) {
+        arraySetUp[0].forEach(num => {
+        arraySetUp[1]
+        .forEach(num2 => 
+        arraySetUp[2]
+        .forEach(num3 => 
+        arraySetUp[3]
+        .forEach(num4 => 
+        arraySetUp[4]
+        .forEach(num5 => 
+        arraySetUp[5]
+        .forEach(num6 => 
+        arraySetUp[6]
+        .forEach(num7 => allCombosArr.push(num + num2 + num3 + num4 + num5 + num6 + num7))
+        )))))
+        })
+        return allCombosArr;
+    } else if(arraySetUp.length == 8) {
+        arraySetUp[0].forEach(num => {
+        arraySetUp[1]
+        .forEach(num2 => 
+        arraySetUp[2]
+        .forEach(num3 => 
+        arraySetUp[3]
+        .forEach(num4 => 
+        arraySetUp[4]
+        .forEach(num5 => 
+        arraySetUp[5]
+        .forEach(num6 => 
+        arraySetUp[6]
+        .forEach(num7 => 
+        arraySetUp[7]
+        .forEach(num8 => allCombosArr.push(num + num2 + num3 + num4 + num5 + num6 + num7 + num8))
+        ))))))
+        })
+        return allCombosArr;
+    }
 } 
-//getPINs('11');
+//getPINs('555');
 function arrayShift(A, K) {
     let inputArr = A,
         rotations = K;
@@ -344,7 +394,6 @@ class NumberStack {
     }
 }
 
-
 function parseInt(string) {
     if (string === 'zero') {
         return 0;
@@ -452,22 +501,44 @@ const companies= [
   ];
   
 const ages = [33, 12, 20, 16, 5, 54, 21, 44, 61, 13, 15, 45, 25, 64, 32];
-/*forEach -- iterates througn all items in an array
+/* forEach is a method called on [] -- iterates througn all items in an array
 if using an arrow function:
 no need to use () if only one param
 ex array.forEacn( item => return item)
 below we have two params
-ages.forEach((age, i) => console.log(`age: ${age}, index: ${i}`));
 */
-//map
+//ages.forEach((age, i) => console.log(`age: ${age}, index: ${i}`));
+//map -- creates new array with age^(1/2)
+//console.log(ages.map(age => Math.floor(Math.sqrt(age))))
 
-//filter
+//filter -- returns new array with the filtered item
+//ie below returns array with all numbers over 17 from ages[]
+//also, below having fun with stacking methods
+// sort a - b sorts from lowest to highest
+// sort b -a sorts from highest to lowest
+// reduce adds all numbers in array, with an init value of 0
+/*
+console.log(ages.filter(agesOver17 => agesOver17 > 17)
+.sort((a,b) => a - b)
+.reduce((total, num) => total + num, 0) 
+//above the 0 initial value for reduce() is unnecesary
+);
+*/
+//Get retails companies
+const retailCompanies = companies.filter(company => company.category === 'Retail')
+//console.log('Retail Companies ---> \n',retailCompanies);
+
+//Get 80s companies
+const eightiesCompanies = companies.filter(company => company.start >= 1980 && company.start < 1990)
+.sort((a, b) => a - b);
+//console.log('80s Companyies ---> \n', eightiesCompanies);
+
 //reduce
 //sort
 // const s1 = 'Hello';
 // console.log(typeof s1);
 
-//OOP crash course, by Traversy Media
+// OOP crash course, by Traversy Media
 /* Object Literal
 const book1 = {
     title: 'Book One',
@@ -649,8 +720,9 @@ class Magazine extends Book {
 
 const mag1 = new Magazine('PC Gamez', 'Brian M', '2021', 'March');
 console.log(mag1.getSummary());
-//end of lesson
 */
+//end of OOP lesson 
+
 
 
 
