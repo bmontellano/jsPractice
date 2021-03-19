@@ -485,6 +485,22 @@ function parseInt(string) {
     return totalNumber;
 }
 //parseInt('one thousand seven hundred and eighty-three');
+function ipsBetween(start, end){
+    let startMap = start.split('.').map(item => parseInt(item)),
+        endMap = end.split('.').map(item => parseInt(item)),
+        sumDiff = 0;
+        sumDiff += ((endMap[0] - startMap[0]) * (256**3))
+                + ((endMap[1] - startMap[1]) * (256**2))
+                + ((endMap[2] - startMap[2]) * 256)
+                + (endMap[3] - startMap[3]);
+        //console.log(sumDiff)
+        return sumDiff
+  }
+//ipsBetween("180.0.0.0", "181.0.0.0");
+
+
+
+
 
 //higher order functions && arrays
 
